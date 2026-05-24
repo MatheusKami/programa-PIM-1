@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Controle</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -96,7 +96,7 @@
        <number>1</number>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="entrada">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -110,7 +110,7 @@
         <item>
          <widget class="QFrame" name="frame_2">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 127);</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -176,6 +176,12 @@
           <attribute name="horizontalHeaderHighlightSections">
            <bool>true</bool>
           </attribute>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
           </attribute>
@@ -224,7 +230,7 @@
         <item>
          <widget class="QFrame" name="frame_4">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 127);</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -282,7 +288,7 @@
            <number>4</number>
           </property>
           <attribute name="horizontalHeaderVisible">
-           <bool>false</bool>
+           <bool>true</bool>
           </attribute>
           <attribute name="horizontalHeaderCascadingSectionResizes">
            <bool>false</bool>

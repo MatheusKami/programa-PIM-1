@@ -31,6 +31,21 @@ CREATE TABLE IF NOT EXISTS saidas (
 
 conexao.commit()
 
+#tenta limpar os campos, se nao ir, ignora
+def limpar():
+    try:
+        janela.tiposo.clear()
+        janela.descricaop.clear()
+        janela.valorp.clear()
+        janela.tipoe.clear()
+        janela.descricaoe.clear()
+        janela.valore.clear()
+        janela.tipos.clear()
+        janela.descricaos.clear()
+        janela.valors.clear()
+    except:
+        pass
+
 
 #adicionar item entrada
 def entrada(tipo, descricao, valor):
@@ -198,44 +213,26 @@ def selecionar():
     )
 
 def salvar():
-
-    id = janela.Id.text()
+    id = int(janela.Id.text())
 
     tipo = janela.tiposo.text()
     descricao = janela.descricaop.text()
     valor = janela.valorp.text()
 
-    # tenta entradas
     cursor.execute("""
         UPDATE entradas
-        SET
-            tipo=?,
-            descricao=?,
-            valor=?
+        SET tipo=?, descricao=?, valor=?
         WHERE id=?
-    """, (
-        tipo,
-        descricao,
-        valor,
-        id
-    ))
+    """, (tipo, descricao, valor, id))
 
-    # se não encontrou
-    if cursor.rowcount == 0:
+    alterou = cursor.rowcount
 
+    if alterou == 0:
         cursor.execute("""
             UPDATE saidas
-            SET
-                tipo=?,
-                descricao=?,
-                valor=?
+            SET tipo=?, descricao=?, valor=?
             WHERE id=?
-        """, (
-            tipo,
-            descricao,
-            valor,
-            id
-        ))
+        """, (tipo, descricao, valor, id))
 
     conexao.commit()
     atualizar_saldo()
@@ -306,3 +303,4 @@ def atualizar_saldo():
     janela.saldo.setText(
         f"R$ {saldo:.2f}"
     )
+    limpar()
